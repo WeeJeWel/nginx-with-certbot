@@ -32,7 +32,13 @@ server {
     }
 }
 
+To reload nginx, run inside your Docker container:
+
+```bash
+$ nginx -s reload
 ```
+
+> TODO: Make an easier command for this.
 
 To request a new certificate, run inside your Docker container:
 
