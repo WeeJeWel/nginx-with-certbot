@@ -44,7 +44,7 @@ $ nginx -s reload
 To request a new certificate, run inside your Docker container:
 
 ```bash
-$ /usr/bin/certbot --nginx --non-interactive --agree-tos -m webmaster@google.com -d mydomain.com
+$ certbot --nginx --non-interactive --agree-tos -m webmaster@google.com -d mydomain.com
 ```
 
 > TODO: Make an easier command for this.
