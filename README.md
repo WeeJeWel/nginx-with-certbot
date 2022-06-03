@@ -21,11 +21,11 @@ services:
       - ./data/letsencrypt/:/etc/letsencrypt/
 ```
 
-Then create a server in `./data/nginx/`:
+Then create a server in `./data/nginx/`, e.g. `plex.conf`:
 
 ```
 server {
-    server_name mydomain.com;
+    server_name myserver.com;
 
     location / {
         return 200 'Hello!';
@@ -44,7 +44,7 @@ $ nginx -s reload
 To request a new certificate, run inside your Docker container:
 
 ```bash
-$ certbot --nginx --non-interactive --agree-tos -m webmaster@google.com -d mydomain.com
+$ certbot --nginx --non-interactive --agree-tos -m webmaster@google.com -d myserver.com
 ```
 
 > TODO: Make an easier command for this.
