@@ -31,6 +31,7 @@ server {
         return 200 'Hello!';
     }
 }
+```
 
 To reload nginx, run inside your Docker container:
 
