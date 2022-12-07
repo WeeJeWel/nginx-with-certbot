@@ -25,32 +25,31 @@ Then create a server in `./data/nginx/`, e.g. `plex.conf`:
 
 ```
 server {
-    server_name myserver.com;
+    server_name plex.myserver.com;
 
     location / {
-        return 200 'Hello!';
+        proxy_pass http://plex:32400/; # `plex` refers to a `plex` service in your docker-compose.yml
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection "Upgrade";
+        proxy_set_header Host $host;
     }
 }
 ```
 
-To reload nginx, run inside your Docker container:
+To reload nginx, run:
 
 ```bash
-$ nginx -s reload
+$ docker exec nginx-with-certbot nginx -s reload
 ```
 
-> TODO: Make an easier command for this.
-
-To request a new certificate, run inside your Docker container:
+To request a new certificate, run:
 
 ```bash
-$ certbot --nginx --non-interactive --agree-tos -m webmaster@google.com -d myserver.com
+$ docker exec nginx-with-certbot certbot --nginx --non-interactive --agree-tos -m webmaster@google.com -d plex.myserver.com
 ```
-
-> TODO: Make an easier command for this.
 
 ## Building
-
 
 ```bash
 $ docker buildx build --tag nginx-with-certbot .
