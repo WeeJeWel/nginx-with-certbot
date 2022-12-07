@@ -47,13 +47,15 @@ server {
 To reload nginx, run:
 
 ```bash
-$ docker exec nginx-with-certbot nginx -s reload
+$ docker exec nginx-with-certbot \
+  nginx -s reload
 ```
 
 To request a new certificate, run:
 
 ```bash
-$ docker exec nginx-with-certbot certbot --nginx --non-interactive --agree-tos -m webmaster@google.com -d plex.myserver.com
+$ docker exec nginx-with-certbot \
+  certbot --nginx --non-interactive --agree-tos -m webmaster@google.com -d plex.myserver.com
 ```
 
 ## Building
