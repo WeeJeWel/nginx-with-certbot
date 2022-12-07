@@ -19,6 +19,9 @@ services:
     volumes:
       - ./data/nginx/:/etc/nginx/servers/
       - ./data/letsencrypt/:/etc/letsencrypt/
+
+  plex:
+   # ...
 ```
 
 Then create a server in `./data/nginx/`, e.g. `plex.conf`:
