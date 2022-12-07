@@ -1,5 +1,9 @@
 # Nginx with Certbot
 
+[![Docker](https://img.shields.io/docker/pulls/weejewel/nginx-with-certbot.svg)](https://hub.docker.com/r/weejewel/nginx-with-certbot)
+[![Sponsor](https://img.shields.io/github/sponsors/weejewel)](https://github.com/sponsors/WeeJeWel)
+![GitHub Stars](https://img.shields.io/github/stars/weejewel/nginx-with-certbot)
+
 This nginx container comes pre-installed with Certbot (Let's Encrypt) and automatically refreshes any certificates.
 
 It's main purpose is to proxy local-running services to the internet with SSL, e.g. `plex.myserver.com`.
